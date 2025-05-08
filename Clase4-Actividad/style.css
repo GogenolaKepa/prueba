@@ -1,0 +1,22 @@
+header nav h1 a{
+    color: orangered;
+    text-decoration: none;
+}
+.num3 {
+    color: grey;
+}
+
+header nav h3 a{
+    background-color: orangered;
+    color: white;
+    background-size: 20px;
+    text-decoration: none;
+}
+
+.name{
+    color: orangered;
+}
+
+h3{
+    color: orangered;
+}

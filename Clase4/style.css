@@ -1,0 +1,25 @@
+header h1{
+    color: blue;
+}
+h1{
+    color: red;
+}
+#layout{
+    height: 10px;
+    background-color: blue;
+}
+.article-noticias{
+    margin-top: 100px;
+    background-color: orange;
+}
+
+a[href*="#"]{
+    color: red;
+}
+a[href*="layout"]{
+    color: pink;
+}
+
+h2{
+    color: red;
+}
