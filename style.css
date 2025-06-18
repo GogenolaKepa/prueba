@@ -20,13 +20,15 @@ a {
 header {
   background-color: white;
   padding: 10px 0;
-  border-bottom: 2px solid orangered;
 }
 
 .topbar {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 2px solid orangered;
 }
 
 .topbar h1 a {
@@ -42,24 +44,73 @@ header {
 .topbar nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 15px;
+  align-items: center;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: orangered;
+  padding: 8px;
+  border: 2px solid orangered;
+  border-radius: 4px;
+}
+
+.btn-suscribite {
+  background-color: transparent;
+  border: 2px solid orangered;
+  color: orangered;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s;
+  text-decoration: none;
+}
+
+.btn-suscribite:hover {
+  background-color: orangered;
+  color: white;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: white;
+  border-top: 2px solid orangered;
+  padding: 10px 20px;
+}
+
+.mobile-menu a {
+  padding: 10px 0;
+  color: orangered;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 1px solid lightgray;
 }
 
 .container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: auto;
-  padding: 20px 0;
+  padding: 20px;
+}
+
+.categoria-centrado {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
 }
 
 .categoria {
   background-color: orangered;
   color: white;
-  display: inline-block;
-  padding: 4px 8px;
-  font-size: 0.85rem;
-  margin-bottom: 15px;
-  border-radius: 2px;
+  padding: 10px 30px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border-radius: 6px;
+  text-align: center;
+  width: fit-content;
 }
 
 .titulo {
@@ -91,6 +142,23 @@ img {
   text-align: justify;
 }
 
+.etiquetas button {
+  background-color: transparent;
+  border: 2px solid orangered;
+  color: orangered;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.etiquetas button:hover {
+  background-color: orangered;
+  color: white;
+}
+
 footer {
   background-color: orangered;
   color: white;
@@ -99,19 +167,153 @@ footer {
   margin-top: 40px;
 }
 
-/* Media queries */
-@media (min-width: 768px) {
+.formulario {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.form-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.form-col {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input {
+  padding: 8px;
+  margin-bottom: 5px;
+}
+
+.error-msg {
+  color: red;
+  font-size: 0.8em;
+  min-height: 1em;
+}
+
+.form-submit {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.form-submit button {
+  background-color: orangered;
+  color: white;
+  padding: 10px 25px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.form-submit button:hover {
+  background-color: #e55300;
+}
+
+#form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .mobile-menu.show {
+    display: flex;
+  }
+
   .topbar {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .topbar nav a {
-    font-size: 0.9rem;
+  .topbar h1 {
+    margin-bottom: 10px;
+  }
+}
+
+.categoria {
+  background-color: orangered;
+  color: white;
+  padding: auto;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border-radius: 6px;
+  text-align: center;
+  margin: 30px auto 20px;
+  display: block;
+  width: fit-content;
+}
+
+.volver-inicio {
+  background-color: transparent;
+  border: 2px solid orangered;
+  color: orangered;
+  padding: 6px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+  display: inline-block;
+}
+
+.volver-inicio::before {
+  content: "← ";
+}
+
+.volver-inicio:hover {
+  background-color: orangered;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none !important;
   }
 
-  .titulo {
-    font-size: 2.4rem;
+  .menu-toggle {
+    display: block !important;
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: white;
+    padding: 10px 20px;
+    border-top: 2px solid orangered;
+  }
+
+  .mobile-menu.show {
+    display: flex;
+  }
+
+  .mobile-menu a {
+    padding: 10px 0;
+    color: orangered;
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 1px solid lightgray;
   }
 }
