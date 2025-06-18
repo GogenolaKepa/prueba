@@ -9,21 +9,41 @@
 <body>
   <header>
     <div class="topbar">
-      <h1><a href="https://www.rosario3.com/">rosario<span class="gray">3</span></a></h1>
-      <nav>
-        <a href="#">INICIO</a>
-        <a href="#">CIUDAD</a>
-        <a href="#">REGIÓN</a>
-        <a href="#">POLICIALES</a>
-        <a href="#">DEPORTES</a>
-        <a href="#">OCIO</a>
-        <a href="#">VIDEOS</a>
-      </nav>
-    </div>
+  <h1><a href="index.html">rosario<span class="gray">3</span></a></h1>
+
+  <nav class="nav-links">
+    <a href="#">INICIO</a>
+    <a href="#">CIUDAD</a>
+    <a href="#">REGIÓN</a>
+    <a href="#">POLICIALES</a>
+    <a href="#">DEPORTES</a>
+    <a href="#">OCIO</a>
+    <a href="#">VIDEOS</a>
+  </nav>
+
+  <a href="subscription.html" class="btn-suscribite">SUSCRIBITE</a>
+
+  <div class="menu-toggle" id="menu-toggle">
+    ☰
+  </div>
+</div>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#">INICIO</a>
+  <a href="#">CIUDAD</a>
+  <a href="#">REGIÓN</a>
+  <a href="#">POLICIALES</a>
+  <a href="#">DEPORTES</a>
+  <a href="#">OCIO</a>
+  <a href="#">VIDEOS</a>
+</div>
+
   </header>
 
-  <div class="container">
-    <section class="categoria">INFORMACIÓN GENERAL</section>
+  <div 
+  class="categoria-centrado"><section class="categoria">INFORMACIÓN GENERAL</section>
+</div>
+<div class="container">
     <p class="fecha">14 de abril de 2025</p>
     <h2 class="titulo">Finalmente, no habrá paro en Aerolíneas Argentinas en la víspera de Semana Santa</h2>
     <p class="bajada">Luego de horas decisivas en las negociaciones por la definición de una medida de fuerza en la línea aérea por parte del gremio de pilotos, hubo negociación</p>
@@ -49,10 +69,18 @@
     </section>
 
     <section class="seguileeyendo">
+      <style>
+        .seguileeyendo {
+          color: orangered;
+        }
+      </style>
       <h3>SEGUÍ LEYENDO</h3>
+    </section>
+        <section class="seguileeyendo2">
       <div class="relacionada">
         <img src="C:\Users\kepag\OneDrive\Pictures\Capturas de pantalla\Screenshot 2025-06-04 212537.png" alt="Agroactiva">
-        <p><span class="categoria">INFORMACIÓN GENERAL</span><br>
+        <div class="categoria-centrado"><p><span class="categoria">INFORMACIÓN GENERAL</span><br>
+</div>
         <strong>Agroactiva 2025 se puso en marcha este miércoles en Armstrong</strong></p>
         <img src="C:\Users\kepag\OneDrive\Pictures\Capturas de pantalla\Screenshot 2025-06-04 212303.png" alt="">
       </div>
@@ -62,5 +90,13 @@
   <footer>
     <p>© Rosario3 - Todos los derechos reservados</p>
   </footer>
+  <script>
+  const toggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  toggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('show');
+  });
+</script>
 </body>
 </html>
