@@ -105,7 +105,7 @@ inputs.forEach(input => {
   }
 });
 
-// Envío final
+/* Envío final
 form.addEventListener('submit', e => {
   e.preventDefault();
 
@@ -126,3 +126,75 @@ form.addEventListener('submit', e => {
     formTitle.textContent = 'HOLA';
   }
 });
+*/
+
+//Clase 10 Actividad
+document.getElementById('subscription-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  // Recolectar datos
+  const data = {
+    nombre: document.getElementById('nombre').value,
+    email: document.getElementById('email').value,
+    password: document.getElementById('password').value,
+    repeatPassword: document.getElementById('repeat-password').value,
+    edad: document.getElementById('edad').value,
+    telefono: document.getElementById('telefono').value,
+    direccion: document.getElementById('direccion').value,
+    ciudad: document.getElementById('ciudad').value,
+    codigoPostal: document.getElementById('codigo-postal').value,
+    dni: document.getElementById('dni').value
+  };
+
+  // Validar
+  if (data.password !== data.repeatPassword) {
+    return mostrarModal("Error: las contraseñas no coinciden", false);
+  }
+
+  // Enviar si está todo ok
+  enviarDatos(data);
+});
+
+function enviarDatos(data) {
+  fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(res => res.json())
+  .then(responseData => {
+    mostrarModal("Suscripcion realizada con exito!", true, responseData);
+    localStorage.setItem('datosSuscriptor', JSON.stringify(data));
+  })
+  .catch(error => {
+    mostrarModal("Hubo un error en la suscripción", false, error.message);
+  });
+}
+
+function mostrarModal(titulo, exito, datos = "") {
+  document.getElementById('modal-title').textContent = titulo;
+  document.getElementById('modal-msg').textContent = exito ? JSON.stringify(datos, null, 2) : datos;
+  document.getElementById('modal').classList.remove('hidden');
+}
+
+document.getElementById('modal-close').addEventListener('click', () => {
+  document.getElementById('modal').classList.add('hidden');
+});
+
+window.onload = function () {
+  const datos = JSON.parse(localStorage.getItem('datosSuscriptor'));
+  if (datos) {
+    document.getElementById('nombre').value = datos.nombre;
+    document.getElementById('email').value = datos.email;
+    document.getElementById('password').value = datos.password;
+    document.getElementById('repeat-password').value = datos.repeatPassword;
+    document.getElementById('edad').value = datos.edad;
+    document.getElementById('telefono').value = datos.telefono;
+    document.getElementById('direccion').value = datos.direccion;
+    document.getElementById('ciudad').value = datos.ciudad;
+    document.getElementById('codigo-postal').value = datos.codigoPostal;
+    document.getElementById('dni').value = datos.dni;
+  }
+};
