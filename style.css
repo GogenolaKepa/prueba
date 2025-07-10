@@ -1,0 +1,131 @@
+/* Reset general */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Fondo y estructura */
+body {
+  background-color: #121212;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+/* Encabezado */
+header {
+  background-color: #bb86fc;
+  color: #e0e0e0;
+  width: 100%;
+  text-align: center;
+  padding: 1.2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Controles: botones e inputs */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.controls input,
+.controls button {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+}
+
+.controls input {
+  width: 160px;
+}
+
+.controls button {
+  background-color: #bb86fc;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.controls button:hover {
+  background-color: #1e1e2e;
+}
+
+/* Resultados de la busqueda hecha*/
+#resultados {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Tarjetas de los personajes */
+.card {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 180px;
+  text-align: center;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.card p {
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+/* Mensaje de error */
+#error {
+  color: #ff5555;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+/* Responsive a los media query */
+@media (max-width: 600px) {
+  header {
+    font-size: 1.5rem;
+  }
+
+  .controls input {
+    width: 120px;
+  }
+
+  .card {
+    width: 140px;
+    padding: 0.8rem;
+  }
+
+  .card h3 {
+    font-size: 0.95rem;
+  }
+
+  .card p {
+    font-size: 0.75rem;
+  }
+}
