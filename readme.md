@@ -1,2 +1,2 @@
 ## Link del page:
-https://GogenolaKepa.github.io/prueba/RICKyMORTY
+https://GogenolaKepa.github.io/prueba/
